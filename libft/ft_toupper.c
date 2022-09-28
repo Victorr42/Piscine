@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/07 17:41:31 by vly               #+#    #+#             */
-/*   Updated: 2022/04/07 17:41:35 by vly              ###   ########.fr       */
+/*   Created: 2022/04/07 17:41:44 by vly               #+#    #+#             */
+/*   Updated: 2022/04/07 17:41:47 by vly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_toupper(int i)
 {
-	size_t	i;
-	size_t	j;
-
-	i = 0;
-	j = 0;
-	while ((dst[i] != '\0') && i < dstsize)
-		i++;
-	while ((src[j] != '\0') && (i + j + 1) < dstsize)
+	if (i >= 'a' && i <= 'z')
 	{
-		dst[i + j] = src [j];
-		j++;
+		i = (i - 'a') + 'A';
 	}
-	if (i < dstsize)
-		dst[i + j] = '\0';
-	return (i + ft_strlen(src));
+	return (i);
 }

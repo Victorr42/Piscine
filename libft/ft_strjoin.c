@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/07 17:41:31 by vly               #+#    #+#             */
-/*   Updated: 2022/04/07 17:41:35 by vly              ###   ########.fr       */
+/*   Created: 2022/04/07 17:51:23 by vly               #+#    #+#             */
+/*   Updated: 2022/04/07 17:51:36 by vly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
-	size_t	j;
+	char			*newstr;
+	unsigned int	i;
+	unsigned int	j;
+	size_t			len;
 
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	newstr = (char *)malloc(sizeof(char) * len);
+	if (newstr == 0)
+		return (0);
 	i = 0;
 	j = 0;
-	while ((dst[i] != '\0') && i < dstsize)
-		i++;
-	while ((src[j] != '\0') && (i + j + 1) < dstsize)
+	while (s1[i] != '\0')
 	{
-		dst[i + j] = src [j];
+		newstr[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+	{
+		newstr[i + j] = s2[j];
 		j++;
 	}
-	if (i < dstsize)
-		dst[i + j] = '\0';
-	return (i + ft_strlen(src));
+	newstr[i + j] = '\0';
+	return (newstr);
 }

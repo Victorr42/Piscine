@@ -5,21 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 17:31:13 by vly               #+#    #+#             */
-/*   Updated: 2022/02/26 17:35:32 by vly              ###   ########.fr       */
+/*   Created: 2022/04/07 17:40:29 by vly               #+#    #+#             */
+/*   Updated: 2022/04/07 17:40:33 by vly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (str[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }

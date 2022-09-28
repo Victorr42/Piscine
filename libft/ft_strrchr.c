@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 19:18:35 by vly               #+#    #+#             */
-/*   Updated: 2022/02/26 19:21:12 by vly              ###   ########.fr       */
+/*   Created: 2022/04/07 17:42:25 by vly               #+#    #+#             */
+/*   Updated: 2022/04/07 17:42:30 by vly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	i;
+	int		i;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		i++;
-	}
+	i = ft_strlen(s);
 	while (i >= 0)
 	{
-		if (s[i] == c)
-			return ((char*)s + i);
+		if (s[i] == (char)c)
+		{
+			return ((char *)(s + i));
+		}
 		i--;
 	}
 	return (0);

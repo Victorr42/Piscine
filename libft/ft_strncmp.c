@@ -5,29 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/26 19:39:34 by vly               #+#    #+#             */
-/*   Updated: 2022/02/26 19:49:45 by vly              ###   ########.fr       */
+/*   Created: 2022/04/07 17:42:46 by vly               #+#    #+#             */
+/*   Updated: 2022/04/07 17:43:29 by vly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
 	unsigned int	i;
 
 	i = 0;
-	while (((unsigned char)s1[i] || (unsigned char)s2[i]) && (i < n))
+	while (n > 0
+		&& ((unsigned char)s2[i] != '\0' || (unsigned char)s1[i] != '\0'))
 	{
-		if ((unsigned char)s1[i] < (unsigned char)s2[i])
-		{
-			return (-1);
-		}
-		else if ((unsigned char)s1[i] > (unsigned char)s2[i])
-		{
-			return (1);
-		}
-		i++;
+		if ((unsigned char)s1[i] != (unsigned char)s2[i])
+			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+		else
+			n--;
+			i++;
 	}
 	return (0);
 }
